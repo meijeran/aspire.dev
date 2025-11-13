@@ -902,23 +902,23 @@ var mauiapp = builder.AddMauiProject("myapp", @"../MyApp/MyApp.csproj");
 
 // Add MAUI app for Windows
 mauiapp.AddWindowsDevice()
-    .WithReference(weatherApi);
+    .WithReference(api);
 
 // Add MAUI app for Mac Catalyst
 mauiapp.AddMacCatalystDevice()
-    .WithReference(weatherApi);
+    .WithReference(api);
 
 // Add MAUI app for iOS running on the iOS Simulator (starts 
 // a random one, or uses the currently started one)
 mauiapp.AddiOSSimulator()
     .WithOtlpDevTunnel() // Needed to get the OpenTelemetry data to "localhost"
-    .WithReference(weatherApi, publicDevTunnel); // Needs a dev tunnel to reach "localhost"
+    .WithReference(api, publicDevTunnel); // Needs a dev tunnel to reach "localhost"
 
 // Add MAUI app for Android running on the emulator with 
 // default emulator (uses running or default emulator, needs to be started)
 mauiapp.AddAndroidEmulator()
     .WithOtlpDevTunnel() // Needed to get the OpenTelemetry data to "localhost"
-    .WithReference(weatherApi, publicDevTunnel); // Needs a dev tunnel to reach "localhost"
+    .WithReference(api, publicDevTunnel); // Needs a dev tunnel to reach "localhost"
 
 builder.Build().Run();
 ```
